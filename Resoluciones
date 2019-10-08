@@ -1,0 +1,20 @@
+Ejercicio 12: Resolución Dinámica
+a)	d([ ],[ ]) = 0 ya que, al ser ambas cadenas vacías podemos decir que son iguales, por lo tanto, no debe aplicarse ninguna operación para igualarlas. 
+d(s1,[ ]) = longitud(s1) ya que deben aplicarse tantos borrados como caracteres tenga la cadena s1 para que sea vacía.
+d([ ],s2) = longitud(s2) ya que deben aplicarse tantas inserciones en una cadena vacía como caracteres tenga la cadena s2 para lograr igualarlas.
+d(s1:c1,s2:c2) = min(d(s1:c1,s2),d(s1,s2:c2),d(s1,s2)
+b)	El algoritmo que utiliza el ejercicio para resolver este problema es un algoritmo de memorización llamado Top-Down que genera una tabla que guarda todas las distancias de edición de cualquier letra de una de las cadenas hacia cualquier letra de la otra, rellenando la tabla de arriba a la izquierda hacia abajo a la derecha ya que necesita los costos anteriores para calcular los nuevos.
+c)	Este algoritmo necesita ir guardando los costos que calcula, ocupando espacio en memoria innecesariamente, ya que el problema puede resolverse con un algoritmo que mejore su orden de complejidad espacial.
+- calcular la distancia levenshtein entre dos cadenas 
+levenshtein :: [ Char ]  ->  [ Char ]  ->  Int 
+levenshtein ""  ""  =  0 
+levenshtein "" s2 =  longitud s2
+levenshtein s1 ""  =  longitud s1
+levenshtein s1 s2
+   El |  último s1 ==  último s2 = levenshtein ( init s1 )  ( init s2 ) 
+   |  de lo contrario  =  mínimo  [ 1  + levenshtein ( init s1 ) s2,
+                           1  + levenshtein s1 ( init s2 ) ,
+                           1  + levenshtein ( init s1 )  ( init s2 ) ]
+
+
+Ejercicio 6: Resolución Greedy
