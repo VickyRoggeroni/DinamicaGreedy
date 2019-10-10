@@ -18,3 +18,18 @@ levenshtein s1 s2
 
 
 Ejercicio 6: Resolución Greedy
+
+      ParadasMinimas(lista[], k, largo){
+      
+         saltos=0, i=0;
+         
+         while(i<=k){
+            ultimaparada=i;
+            while(i<=l && dist<=k){
+               dist = dist + paradas[n];
+			      i++;
+            }
+            dist = 0;
+		      saltos++;
+         }
+      }
